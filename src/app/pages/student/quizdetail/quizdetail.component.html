@@ -1,0 +1,62 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-danger opacity-8"></span>
+    <!-- Header container -->
+    <div class="container-fluid d-flex align-items-center">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <h1 class="display-2 text-white"> Things to Know Before Taking a Quiz</h1>
+          <p class="text-white mt-0 mb-5">Please read through the page of instruction  before you click on the Start quiz button</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid mt--7">
+    <div class="row">
+      
+      <div class="col-xl-12 order-xl-1">
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0">{{quiz.title | titlecase }}</h3>
+                <p>{{quiz.description}}</p>
+              </div>
+             
+            </div>
+          </div>
+          <div class="card-body">
+            <h1 class="mt-2">Important Tips</h1>
+                    <ul>
+                       <li>Students should follow the syllabus and log in with enough time to complete the quiz before the
+                        due date.</li>
+                        <li>You have to submit quiz with in time <b>{{quiz.numberOfQuestion * 2}} Minutes</b></li>
+                        <li>The are <b>{{quiz.numberOfQuestion}} questions </b> in this quiz</li>
+                        <li>Every question has <b>{{ quiz.maxMarks/quiz.numberOfQuestion | number : '1.0-0'}} Marks</b></li>
+                        <li>There are no negative signs for the wrong answer</li>
+                        <li>Make sure you start the quiz far enough in advance of the due date time so you receive the full
+                            amount of allowed time. the quiz will automatically submit  on the due date time.</li>
+                        <li>Once the quiz is opened, you must complete it at that time. You may NOT start the quiz, save your
+                        answers, leave the quiz for an extended period of time, and then come back later to finish the quiz.</li>
+                    <li>All Questions is QCM Types</li>
+                    </ul>
+
+                
+                    <hr class="my-4" />
+                    <h1 class="mt-3">Attempting Quiz</h1>
+                    <ul>
+                        <li>Click <b>Start Quiz</b> button to start the quiz</li>
+                    <li>The time will start the moment you click to Start Quiz button</li>
+                   <li>You cannot resume this exam, if you are interrupted for any reason</li>
+                   <li>Click to Submit Quiz button on completion of the quiz</li>
+                   <li>Report of the test is automatically generated in PDF form</li>
+                
+                     </ul>
+
+                     <hr class="my-4" />
+                    <div class="text-center"><a (click)="startQuiz()" class="btn btn-sm btn-primary text-center">Start Quiz</a></div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

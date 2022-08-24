@@ -1,0 +1,54 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 2px; background-image: url(assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-danger opacity-8"></span>
+    <!-- Header container -->
+    <div class="container-fluid d-flex align-items-center">
+     
+        <div class="col-lg-8 col-md-8">
+            <h1 class="display-2 text-white">   Questions of {{qTitle}}</h1>
+            
+          </div>
+        <div class="col-md-4"> <button type="submit" class="btn btn-primary" [routerLink]="'/add-question/'+qId+'/'+qTitle">Add Question</button></div>  
+
+        
+        
+     
+    </div>
+</div>
+<div class="container-fluid mt--7"  >
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-2"  *ngFor="let q of questions; let i=index ">
+              <div class="card-block">
+               <h3 class="ml-3">{{q.content}}</h3>
+                <div class="container-fluid mt-1">
+                    <div class="row">
+                        <div class="col-md-6"><p><b>1)</b> {{q.option1}}</p></div>
+                        <div class="col-md-6"><p><b>2)</b> {{q.option2}}</p></div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-md-6"><p><b>3)</b> {{q.option3}}</p></div>
+                        <div class="col-md-6"><p><b>4)</b> {{q.option4}}</p></div>
+                    </div>
+                </div>
+
+
+               
+                
+              </div>
+              <div class="card-footer">
+                  <div class="row">
+                      <div class="col-md-6"> <p class="mt-2 text-left text-success"><strong>Correct Answer: {{q.answer}}</strong></p></div>
+                      <div class="col-md-6">
+                        <a class="text-right text-primary mr-2"><i class='fas fa-edit' style='font-size:24px'></i></a>
+                        <a (click)="deleteQuestion(q.id)" class="text-right ml-2"> <i class="fas fa-trash" style="font-size:24px;color:red"></i> </a>
+                       
+                      </div>
+                  </div>
+               
+                 </div>
+            </div>
+            </div>
+            </div>
+            </div>
+  

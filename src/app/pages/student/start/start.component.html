@@ -1,0 +1,152 @@
+<div class="container-fluid" *ngIf="!isSubmit" >
+
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 2px; background-image: url(assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-danger opacity-8"></span>
+    <!-- Header container -->
+    <div class="container-fluid d-flex align-items-center">
+      
+        <div class="col-lg-8 col-md-8">
+          <h1 class="display-2 text-white">   Quiz of <b>{{questions.title}}</b></h1>
+          
+        </div>
+        <div class="col-lg-4 col-md-4 text-center">
+          <h1 class="text-center text-white">{{formattedTime()}}</h1>
+        </div>
+     
+    </div>
+</div>
+  <div class="container-fluid mt--7"  >
+    <div class="row" *ngIf="questions">
+      
+      <div class="col-xl-12 order-xl-1 mt-1 mb-2 pb-0 pt-0" *ngFor="let q of questions.questions; let i =index">
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0 pb-0 pt-1">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <p><b class="mr-2">Q{{i+1}})</b> {{q.content}}</p>
+              </div>
+             
+            </div>
+          </div>
+          <div class="card-body pb-0 pt-1">
+            <div class="row pb-0 pt-1">
+                <div class="col-md-6 " *ngIf="q.option1">
+                 <input type="radio"
+                  [value]="q.option1"
+                   name="{{i}}"
+                   [(ngModel)]="q.givenAnswer"
+                   />
+                 {{q.option1}}
+
+                </div>
+                <div class="col-md-6 " *ngIf="q.option2">
+                 <input type="radio" [value]="q.option2" 
+                 [(ngModel)]="q.givenAnswer"
+                 name="{{i}}"/>
+                 {{q.option2}}
+                </div>
+            </div>
+
+            <div class="row mb-2 mt-2">
+             <div class="col-md-6" *ngIf="q.option3">
+                 <input type="radio" 
+                 [value]="q.option3"
+                 [(ngModel)]="q.givenAnswer"
+                  name="{{i}}"/>
+                 {{q.option3}}
+             </div>
+             <div class="col-md-6 " *ngIf="q.option4">
+                 <input type="radio" 
+                 [(ngModel)]="q.givenAnswer"
+                 [value]="q.option4" 
+                 name="{{i}}"/>
+                 {{q.option4}}
+             </div>
+         </div>
+
+                    
+                    
+          </div>
+        </div>
+      </div>
+      
+      </div> 
+      <div class="text-center col-md-12 mt-2"><a  class="btn btn-sm btn-primary text-center" (click)="submitQuiz()">Submit Quiz</a>
+    </div>
+
+    <div class="col-md-12" *ngIf="questions == null || questions.length == 0">
+      <div class="card-body pb-0 pt-1">
+        <div class="row pb-0 pt-1">
+          <h1>Oops1 </h1>
+          <h4>No Question in this quiz</h4>
+        </div>
+      </div>
+    </div>
+    
+</div>              
+
+
+
+
+</div>
+
+
+
+<div  *ngIf="isSubmit" class="bg-gradient-danger">
+ 
+  <div class="container  pb-5">
+    <div class="row justify-content-center pt-5">
+      <div class="col-lg-5 mt-5 col-md-7">
+        <div class="card card-profile shadow">
+          <div class="row justify-content-center">
+            <div class="col-lg-3 order-lg-2">
+              <div class="card-profile-image">
+                <a href="javascript:void(0)">
+                  <img src="assets/img/result.png" >
+                </a>
+              </div>
+            </div>
+          </div>
+         
+          <div class="card-body mt-7 pt-0 pt-md-4">
+            
+            <div class="text-center mt-5">
+              <h1 class="text-primary">Quiz Result</h1>
+              <h3>
+                <b>Marks Got:</b> {{marksGot | number: '1.0-0'}}
+              </h3>
+             
+             
+             
+            </div>
+            <div class="row mb-0 mt-2">
+              <div class="col">
+                <div class="card-profile-stats d-flex justify-content-center mt-md-0">
+                 
+                  <div>
+                   <h3><b>Correct Answers</b> </h3>
+                   <h2 class="text-success">{{correctAnswers}}</h2>
+                  </div>
+                  <div>
+                    <h3><b>Questions Attempted:</b> </h3>
+                    <h2 class="text-info">{{essayed}}</h2>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12 text-center">
+                <hr class="my-4" />
+                <a [routerLink]="'/student-dashboard'" class="btn btn-sm btn-primary">Home</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div> 
+</div>
+
+
+

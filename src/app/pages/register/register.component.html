@@ -1,0 +1,105 @@
+<div class="header bg-gradient-danger py-7 py-lg-8">
+  <div class="container">
+    <div class="header-body text-center mb-7">
+      <div class="row justify-content-center">
+       
+      </div>
+    </div>
+  </div>
+ 
+</div>
+<!-- Page content -->
+<div class="container mt--8 pb-5">
+  <!-- Table -->
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+      <div class="card bg-secondary shadow border-0">
+        
+        <div class="card-body px-lg-5 py-lg-5">
+          <div class="text-center text-muted mb-4">
+            <h3 class="text-danger">Sign Up</h3>
+          </div>
+          <hr class="my-4" />
+          <form  (ngSubmit)="formSubmit()">
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                </div>
+                <input class="form-control" required
+                [(ngModel)]="user.username"
+                 placeholder="Username" type="text" name="username">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                </div>
+                <input class="form-control" required
+                required
+                    [(ngModel)]="user.firstname"
+                     placeholder="Firstname" type="text" name="firstname">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-single-02"></i></span>
+                </div>
+                <input class="form-control" required
+                required
+                    [(ngModel)]="user.lastname"
+                     placeholder="Lastname" type="text"  name="lastname">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                </div>
+                <input class="form-control" required
+                [(ngModel)]="user.email"
+                 placeholder="Email" type="email" class="form-control" name="email">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-solid fa-phone"></i></span>
+                </div>
+                <input required
+                [(ngModel)]="user.phone"
+                placeholder="Phone" type="text" class="form-control" name="phone">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                </div>
+                <input class="form-control" required
+                [(ngModel)]="user.password"
+                matInput placeholder="Password" type="password" name="password">
+              </div>
+            </div>
+            <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>
+            <div class="row my-4">
+              <div class="col-12">
+                <div class="custom-control custom-control-alternative custom-checkbox">
+                  <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                  <label class="custom-control-label" for="customCheckRegister">
+                    <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary mt-4">Create account</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

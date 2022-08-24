@@ -1,0 +1,35 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 2px; background-image: url(assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-danger opacity-8"></span>
+    <!-- Header container -->
+    <div class="container-fluid d-flex align-items-center">
+      
+        <div class="col-lg-8 col-md-8">
+          <h1 class="display-2 text-white">   All Quizzes</h1>
+          
+        </div>
+        
+     
+    </div>
+</div>
+<div class="container-fluid mt--7"  >
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-2"  *ngFor="let q of quizzes; let i =index">
+              <div class="card-block">
+                <h1 class="card-text good-review-score float-left">{{i+1}}</h1>
+                <h2 class="card-title">{{q.title}}</h2>
+                <h3 class="text-info mt--2">{{q.category.title}}</h3>
+                <p class="card-text">{{q.description}}</p>
+              </div>
+              <div class="card-footer">
+                <a [routerLink]="'/view-questions/'+q.id+'/'+q.title" class="btn btn-sm btn-primary float-right">Questions</a>
+                <button type="button" class="btn btn-outline-primary">Max Marks: {{q.maxMarks}}</button>
+                <button type="button" class="btn btn-outline-primary">Questions: {{q.numberOfQuestion}}</button>
+                <a [routerLink]="'/quiz/'+ q.id" class="btn btn-sm btn-primary float-right">Update</a>
+              </div>
+            </div>
+            </div>
+            </div>
+            </div>
+  

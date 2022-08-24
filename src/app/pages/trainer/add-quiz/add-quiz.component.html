@@ -1,0 +1,79 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+        <!-- Card stats -->
+        <div class="row">
+         
+         
+            <h1 class="display-2 text-white text-center">  Add New Quiz</h1>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page content -->
+  <div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          
+          <div class="card-body">
+            <div class="row justify-content-center" >
+                <div class="col-lg-5 col-md-5">
+               
+
+                    <form (ngSubmit)="submitForm()">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" id="title" name="title" [(ngModel)]="quizData.title" placeholder="Enter Title" required>
+                          </div>
+                          <div class="form-group">
+                            <label for="description">Enter Description</label>
+                            <textarea name="description" placeholder="Enter Description" [(ngModel)]="quizData.description" class="form-control"  rows="5" ></textarea>
+                          </div>
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <label for="inputEmail4">Maximum Marks</label>
+                            <input  class="form-control" [(ngModel)]="quizData.maxMarks" type="text" name="maxMarks" placeholder="Enter Maximum Marks">
+                          </div>
+                          <div class="form-group col-md-6">
+                            <label for="inputPassword4">Number of Questions</label>
+                            <input  class="form-control" [(ngModel)]="quizData.numberOfQuestion"
+                            type="text" name="nbQuestion" placeholder="Enter Number of Questions">
+                          </div>
+                        </div>
+                       
+                        <div class="form-row">
+                          <div class="form-group col-md-12">
+                            <label for="inputState">State</label>
+                            <select name="category"  [(ngModel)]="quizData.category.id" class="form-control">
+                                <option selected>Choose Category</option>
+                                <option *ngFor="let c of categories" [value]="c.id">{{c.title}}</option>
+                            </select>
+                          </div>
+                          
+                          <div class="form-group col-md-12">
+                            <div class="checkbox">
+                                <label>
+                                  <input type="checkbox" data-toggle="toggle" name="active"
+                                  [(ngModel)]="quizData.active">
+                                  Publish Status
+                                </label>
+                              </div>
+                          </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Add Quiz</button>
+                      </form>
+
+
+
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
